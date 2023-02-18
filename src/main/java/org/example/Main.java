@@ -20,14 +20,15 @@ public class Main {
             System.out.println(sale.getClientName() + " realizou uma compra");
         });
 
-//        cartNotification.getCartFlux().delaySequence(Duration.ofSeconds(1)).subscribe(produto -> {
-//            System.out.println(Thread.currentThread().getName());
-//            System.out.println("Novo produto inserido no carrinho " + produto);
-//        });
         cartNotification.getCartFlux().subscribe(produto -> {
             System.out.println(Thread.currentThread().getName());
             System.out.println("Novo produto inserido no carrinho: produto " + produto);
         });
+//        cartNotification.getCartFlux().delaySequence(Duration.ofSeconds(1)).subscribe(produto -> {
+//            System.out.println(Thread.currentThread().getName());
+//            System.out.println("Novo produto inserido no carrinho " + produto);
+//        });
+
 
         try(Scanner scanner = new Scanner(System.in)) {
             System.out.print("Digite seu nome: ");
